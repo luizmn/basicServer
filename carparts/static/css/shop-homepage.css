@@ -1,0 +1,48 @@
+/*!
+ * Start Bootstrap - Shop Homepage (https://startbootstrap.com/template-overviews/shop-homepage)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-shop-homepage/blob/master/LICENSE)
+ */
+
+body {
+  padding-top: 54px;
+}
+
+@media (min-width: 992px) {
+  body {
+    padding-top: 56px;
+  }
+}
+
+p.main {
+    font-family: "Helvetica Neue", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    color: #7B7573;
+    line-height: 24px;
+    font-weight: 400;
+    text-align: justify;
+}
+
+/*
+ *
+ * Flexbox Grid
+ *
+ *
+ */
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex-container > div {
+    width: 33%;
+    margin: 1px;
+    text-align: center;
+    line-height: 75px;
+    font-size: 30px;
+}
+
+.item-image {
+    width: 100%;
+}
