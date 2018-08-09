@@ -26,7 +26,7 @@ import requests
 app = Flask(__name__)
 csrf = CSRFProtect(app)
 
-APP_PATH = '/var/www/html/carpartssql/'
+APP_PATH = '/var/www/html/carparts/'
 CLIENT_ID = (json.loads(open(APP_PATH + 'client_secrets.json', 'r').read())
              ['web']['client_id'])
 
