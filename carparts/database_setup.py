@@ -14,6 +14,7 @@ POSTGRES = {
     'host': 'localhost',
     'port': '5432',
 }
+
 db_string = 'postgresql://%(user)s:\
 %(pw)s@%(host)s:%(port)s/%(db)s' % POSTGRES
 
@@ -55,7 +56,6 @@ class Category(Base):
             'id': self.id,
             'user_id': self.user_id,
         }
-
 
 class Product(Base):
     __tablename__ = 'product'

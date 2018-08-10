@@ -24,14 +24,14 @@ import json
 import requests
 
 app = Flask(__name__)
+app.secret_key = 'super_secret_key'
+
 csrf = CSRFProtect(app)
 
 APP_PATH = '/var/www/html/carparts/'
 CLIENT_ID = (json.loads(open(APP_PATH + 'client_secrets.json', 'r').read())
              ['web']['client_id'])
 
-#CLIENT_ID = (json.loads(open('client_secrets.json', 'r').read())
-#             ['web']['client_id'])
 APPLICATION_NAME = "Car Parts Catalog"
 
 # Connect to Database and create database session
@@ -584,6 +584,8 @@ def disconnect():
 
 if __name__ == '__main__':
     app.secret_key = 'super_secret_key'
+    #app.config['SESSION_TYPE'] = 'filesystem'
     app.debug = True
     csrf_secret_key = 'csrf_secrets'
     app.run(host='0.0.0.0', port=8000)
+
