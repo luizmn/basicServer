@@ -137,7 +137,7 @@ Paste in the keys using SSH:
 At last, simply open id_rsa.pub file (client), copy the content and paste inside /.ssh/authorized_keys file (host machine)
 
  
-[How To Set Up SSH Keys ](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2)
+[How To Set Up SSH Keys](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2)
 ##Configuring the firewall
 
 You may check this tutorial ["Setting up the ufw firewall"](https://www.digitalocean.com/community/tutorials/how-to-setup-a-firewall-with-ufw-on-an-ubuntu-and-debian-cloud-server) to understand more of the firewall configuration but in order to make our server work you will have to run just some  commands:  
@@ -454,7 +454,7 @@ You may need to install curl if you don’t have it already installed. Use the f
 Source: [ThisHosting.Rocks](https://thishosting.rocks/how-to-install-optimize-apache-ubuntu/)  
 
 ##References
-* [How To Set Up SSH Keys ](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2)
+* [How To Set Up SSH Keys](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2)
 * [Installing Apache 2 on Ubuntu 18](https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-ubuntu-18-04)
 * [Setting up the ufw firewall](https://www.digitalocean.com/community/tutorials/how-to-setup-a-firewall-with-ufw-on-an-ubuntu-and-debian-cloud-server)
 * [Amazon Lightsail: How to set up your first instance](https://cloudacademy.com/blog/how-to-set-up-your-first-amazon-lightsail/)
