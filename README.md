@@ -8,7 +8,7 @@ Port: 2200
 User: grader  
 
 To access the portfolio demo:  
-[http://www.lmnportfolio.tk/](https://www.lmnportfolio.tk/)  
+[http://www.lmnportfolio.tk/](http://www.lmnportfolio.tk/)  
 
 
 ##Configuring a Linux Web server
