@@ -38,7 +38,10 @@ In order to set up this web server you will need:
 * python-psycopg2  
 * python-requests  
 * oauth2client  
-* certbot-auto (optional)
+* certbot-auto (optional)  
+* libapache2-modsecurity (optional)  
+* libapache2-mod-evasive (optional)  
+* Apache2Buddy script (optional)  
 
 All python requirements can be found in the file **requirements.txt**
 
@@ -396,7 +399,7 @@ Finally, restart Apache
         
 If you want more information you can check this [tutorial](https://www.ostechnix.com/configure-apache-virtual-hosts-ubuntu-part-1/) on creating Apache VirtualHost on Ubuntu 18.
 
-###Secure your Apache with ModSecurity
+###Secure your Apache with ModSecurity (optional)
 
 ModSecurity is an Apache module used for security, that basically acts as a firewall, and it monitors your traffic. To install it, run:
 
@@ -410,7 +413,7 @@ ModSecurity comes with a default setup that’s good enough by itself, but if yo
 
 Source [ThisHosting.Rocks](https://thishosting.rocks/how-to-install-optimize-apache-ubuntu/)
 
-###Block DDoS attacks using the mod_evasive module
+###Block DDoS attacks using the mod_evasive module (optional)
 
 You can use the mod_evasive module to block and prevent DDoS attacks on your server, though it’s debatable how useful it is in preventing attacks. To install it, use the following command:
 
@@ -433,7 +436,7 @@ Restart Apache for the changes to take effect:
 
 Source: [ThisHosting.Rocks](https://thishosting.rocks/how-to-install-optimize-apache-ubuntu/)
 
-###Optimize Apache with the Apache2Buddy script
+###Optimize Apache with the Apache2Buddy script (optional)
 
 Apache2Buddy is a script that will automatically fine-tune your Apache configuration. The only thing you need to do is run the following command and the script does the rest automatically:
 
