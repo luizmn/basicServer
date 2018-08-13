@@ -113,6 +113,31 @@ You can hide last login user by editing the following line.
 
 ```PrintLastLog no```
 
+###How To Set Up SSH Keys 
+
+Create the RSA Key Pair in the client (usually, your computer):  
+```$ sudo ssh-keygen -t rsa```  
+It will ask you where to store the file:
+> Enter file in which to save the key (/home/user/.ssh/id_rsa):
+You can just hit _enter_ to save the file to the home user directory.   
+Then you will be asked to enter a passphrase. You can press _enter_ for no passphrase but it is **recommended** to enter one because the security of a key, no matter how encrypted, still depends on the fact that it is not visible to anyone else. 
+If a passphrase-protected private key fall into an unauthorized users possession, they will be unable to log in to its associated accounts until they figure out the passphrase, buying the hacked user some extra time. The only downside, of course, to having a passphrase, is then having to type it in each time you use the key pair.  
+
+The public key is now located in _/home/user/.ssh/id_rsa.pub_. The private key (identification) is now located in 
+> /home/user/.ssh/id_rsa
+
+Now you have to copy the public key to the machine's authorized_keys file. You can do it in three ways:
+
+Using ssh-copy-id:
+ ```$ sudo ssh-copy-id user@host-ip```   
+
+Paste in the keys using SSH:
+ ```$ sudo cat ~/.ssh/id_rsa.pub | ssh user@host-ip "mkdir -p ~/.ssh && chmod 700 ~/.ssh && cat >>  ~/.ssh/authorized_keys"```  
+
+At last, simply open id_rsa.pub file (client), copy the content and paste inside /.ssh/authorized_keys file (host machine)
+
+ 
+[How To Set Up SSH Keys ](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2)
 ##Configuring the firewall
 
 You may check this tutorial ["Setting up the ufw firewall"](https://www.digitalocean.com/community/tutorials/how-to-setup-a-firewall-with-ufw-on-an-ubuntu-and-debian-cloud-server) to understand more of the firewall configuration but in order to make our server work you will have to run just some  commands:  
@@ -424,13 +449,14 @@ Apache2Buddy is a script that will automatically fine-tune your Apache configura
 
 You may need to install curl if you don’t have it already installed. Use the following command to install curl:
 
-```$ sudo apt-get install curl``  
-
-Source: [ThisHosting.Rocks](https://thishosting.rocks/how-to-install-optimize-apache-ubuntu/)
+```$ sudo apt-get install curl``` 
+ 
+Source: [ThisHosting.Rocks](https://thishosting.rocks/how-to-install-optimize-apache-ubuntu/)  
 
 ##References
+* [How To Set Up SSH Keys ](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2)
 * [Installing Apache 2 on Ubuntu 18](https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-ubuntu-18-04)
-* ["Setting up the ufw firewall"](https://www.digitalocean.com/community/tutorials/how-to-setup-a-firewall-with-ufw-on-an-ubuntu-and-debian-cloud-server)
+* [Setting up the ufw firewall](https://www.digitalocean.com/community/tutorials/how-to-setup-a-firewall-with-ufw-on-an-ubuntu-and-debian-cloud-server)
 * [Amazon Lightsail: How to set up your first instance](https://cloudacademy.com/blog/how-to-set-up-your-first-amazon-lightsail/)
 * [Creating a sudo user on Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-create-a-sudo-user-on-ubuntu-quickstart)
 * [NTP Server configuration](https://linuxconfig.org/ntp-server-configuration-on-ubuntu-18-04-bionic-beaver-linux)
