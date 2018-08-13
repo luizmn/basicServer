@@ -379,6 +379,54 @@ Finally, restart Apache
         
 If you want more information you can check this [tutorial](https://www.ostechnix.com/configure-apache-virtual-hosts-ubuntu-part-1/) on creating Apache VirtualHost on Ubuntu 18.
 
+###Secure your Apache with ModSecurity
+
+ModSecurity is an Apache module used for security, that basically acts as a firewall, and it monitors your traffic. To install it, run:
+
+```$ sudo apt-get install libapache2-modsecurity```
+
+And restart Apache:
+
+```$ sudo systemctl restart apache2```
+
+ModSecurity comes with a default setup that’s good enough by itself, but if you want to extend it, you can use the [OWASP rule set](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project).
+
+Source [ThisHosting.Rocks](https://thishosting.rocks/how-to-install-optimize-apache-ubuntu/)
+
+###Block DDoS attacks using the mod_evasive module
+
+You can use the mod_evasive module to block and prevent DDoS attacks on your server, though it’s debatable how useful it is in preventing attacks. To install it, use the following command:
+
+```$ sudo apt-get install libapache2-mod-evasive```
+
+By default, mod_evasive is disabled, to enable it, edit the following file:
+
+```$ sudo nano /etc/apache2/mods-enabled/evasive.conf```
+
+And uncomment all the lines (remove #) and configure it per your requirements. You can leave everything as-is if you don’t know what to edit.  
+
+Create a log file:
+
+```$ sudo mkdir /var/log/mod_evasive```  
+```$ sudo chown -R www-data:www-data /var/log/mod_evasive```  
+
+Restart Apache for the changes to take effect:
+
+```$ sudo systemctl restart apache2```
+
+Source: [ThisHosting.Rocks](https://thishosting.rocks/how-to-install-optimize-apache-ubuntu/)
+
+###Optimize Apache with the Apache2Buddy script
+
+Apache2Buddy is a script that will automatically fine-tune your Apache configuration. The only thing you need to do is run the following command and the script does the rest automatically:
+
+```$ sudo curl -sL https://raw.githubusercontent.com/richardforth/apache2buddy/master/apache2buddy.pl | sudo perl```
+
+You may need to install curl if you don’t have it already installed. Use the following command to install curl:
+
+```$ sudo apt-get install curl``  
+
+Source: [ThisHosting.Rocks](https://thishosting.rocks/how-to-install-optimize-apache-ubuntu/)
 
 ##References
 * [Installing Apache 2 on Ubuntu 18](https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-ubuntu-18-04)
@@ -392,3 +440,4 @@ If you want more information you can check this [tutorial](https://www.ostechnix
 * [Auto-Renew for Let’s Encrypt SSL Certificates (Apache)](https://www.onepagezen.com/letsencrypt-auto-renew-certbot-apache/)
 * [Let’s Encrypt](https://letsencrypt.org/)
 * [Configure Apache Virtual Hosts In Ubuntu 18.04 LTS](https://www.ostechnix.com/configure-apache-virtual-hosts-ubuntu-part-1/)
+* [Install and Optimize Apache on Ubuntu](https://thishosting.rocks/how-to-install-optimize-apache-ubuntu/)
