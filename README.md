@@ -4,7 +4,7 @@ To access the web catalog:
 [https://www.awstestmonth.tk/](https://www.awstestmonth.tk/)  
 To access the catalog server:  
 IP: 18.213.152.131  
-Port: 2200
+Port: 2200  
 User: grader  
 
 To access the portfolio demo:  
@@ -163,6 +163,12 @@ POSTGRES: 5432
 After running one command the messages below will be displayed:  
 ```Rules updated```  
 ```Rules updated (v6)```
+
+After configuring the Firewall, enable with  
+```$ sudo ufw enable```
+
+To check firewall status run  
+```$ sudo ufw status```
 
 ##Configuring NTP
 [NTP](http://www.ntp.org/ntpfaq/NTP-s-def.htm) stands for Network Time Protocol, and it is an Internet protocol used to synchronize the clocks of computers to some time reference. NTP is an Internet standard protocol originally developed by [Professor David L. Mills](http://www.ntp.org/ntpfaq/NTP-a-faq.htm#AU-DLM )at the University of Delaware.
@@ -362,6 +368,8 @@ To enable HTTPS on your website, you need to get a certificate (a type of file) 
 Currently, the entire process of obtaining and installing a certificate is fully automated on both Apache and Nginx.  
 To setup Certbot in Ubuntu 18 follow these [simple steps](https://certbot.eff.org/lets-encrypt/ubuntuother-apache)
 
+After Using Let's Encrypt, don't forget to open the new port in firewall with:  
+```$ sudo ufw allow https``` 
 
 ##Configure Apache to host multiple sites (optional)
 Virtual Hosting refers to running multiple domains (or multiple websites) on a single server. The best uses of Virtual Hosting can be seen on shared hosting servers, where thousands of websites hosted on a single server and share the single system resources.
