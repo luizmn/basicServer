@@ -53,8 +53,33 @@ Then run ```$  sudo apt-get upgrade -y```
 
 **Note**: The ```-y```option is used to automatic say "yes" to prompts; assume "yes" as answer to all prompts and run non-interactively.
 
+###Automatic Updates
+
+The unattended-upgrades package can be used to automatically install updated packages, and can be configured to update all packages or just install security updates. First, install the package by entering the following in a terminal:
+
+```$ sudo apt install unattended-upgrades```
+
+To configure unattended-upgrades, edit /etc/apt/apt.conf.d/50unattended-upgrades and adjust the following to fit your needs.
+
+The double “//” serve as comments, so whatever follows "//" will not be evaluated. 
+
+ To enable automatic updates, edit /etc/apt/apt.conf.d/20auto-upgrades and set the appropriate apt configuration options:
+
+> APT::Periodic::Update-Package-Lists "1";  
+> APT::Periodic::Download-Upgradeable-Packages "1";  
+> APT::Periodic::AutocleanInterval "7";  
+> APT::Periodic::Unattended-Upgrade "1";
+
+The above configuration updates the package list, downloads, and installs available upgrades every day. The local download archive is cleaned every week. On servers upgraded to newer versions of Ubuntu, depending on your responses, the file listed above may not be there. In this case, creating a new file of this name should also work.
+
+You can read more about apt Periodic configuration options in the /etc/cron.daily/apt script header.
+
+The results of unattended-upgrades will be logged to /var/log/unattended-upgrades. 
+
 **Note 2:** Some people talk about enabling automatic updates/upgrades but, in a real production server, this option should not be enabled since some updates could break your software/system.
 All updates/upgrades must be tested in another server prior to update the production server. 
+
+Source: [Ubuntu automatic updates](https://help.ubuntu.com/lts/serverguide/automatic-updates.html)
 ####Create a user called 'grader' to access the server
 ```$ adduser grader```  
 
